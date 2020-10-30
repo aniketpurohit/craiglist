@@ -1,0 +1,83 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>craiglist indore</title>
+    <meta name="viewport" content="width=device-width, initial-scale =1" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+
+
+
+</head>
+
+<body class="dark-mode">
+
+    <nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">craiglist indore</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/">Home</a></li>
+                <li><a href="/admin">admin</a></li>
+                <li><div onclick="myfunction()"><i class="material-icons">brightness_4</i></div> </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+            <h1 style="text-align: center">What do you want to search for on craiglist indore?</h1>
+
+        <div class="row">
+
+            <div class="col s4">
+                <!-- Promo Content 1 goes here-->
+                <div class='center'>
+                    <i class="large material-icons" style="color: #EE6E73">flash_on</i>
+                    <p>Fast craiglist web scrapper</p>
+                    <p class="light center">Scrape away right here with a beautiful GUI.</p>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color: orange">camera</i>
+                    <p>Filter your searches</p>
+                    <p class="light center">We built in functionality to filter based on pricing.</p>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="center">
+                    <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
+                    <p>A much aesthetic front-end</p>
+                    <p class="light center">We built this with <i class="material-icons"style="..">favorite</i></p>
+                </div>
+            </div>
+        </div>
+        <form action="{% url 'new_search' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Search">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">arrow_forward</i>
+            </button>
+        </form>
+
+
+
+
+    {% block content %}
+
+    {% endblock content %}
+        <script>
+            function myfunction(){
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            }
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </div>
+
+</body>
+
+</html>
